@@ -1,3 +1,4 @@
+// bridge is an Edge in a graph whose deletion increases the graph's number of connected componenets
 import java.util.*;
 
 public class Bridge {
@@ -36,14 +37,15 @@ public class Bridge {
     public static void dfs(ArrayList<Edge> graph[], int dt[], int lowdt[], boolean vist[], int curr, int prnt,
             int time) {
         vist[curr] = true;
+        
         dt[curr] = lowdt[curr] = ++time;
-
+        //checking all neighbours of current node
         for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
             if (e.dest == prnt)
             {
                 continue;
-            } 
+            }  //update the lowdt of current node if  destination node is already visited 
             if (vist[e.dest]) {
 
                 lowdt[curr] = Math.min(lowdt[curr], dt[e.dest]);
@@ -51,6 +53,7 @@ public class Bridge {
                 dfs(graph, dt, lowdt, vist, e.dest, curr, time);
                 lowdt[curr] = Math.min(lowdt[curr], lowdt[e.dest]);
                 if (dt[curr] < lowdt[e.dest]) {
+                    
                     System.out.println("BRIDGE : " + curr + "---" + e.dest);
                 }
 
@@ -59,13 +62,16 @@ public class Bridge {
     }
 
     public static void tarjanAlgo(ArrayList<Edge> graph[], int V) {
+        //here we are using two arrays one is dt (discovery time) it stored the time when the node was first visited and another one is lowdt (lowest discovery
+        //it  is earliest discovery time of any node reachable from that  node,
         int dt[] = new int[V];
         int lowdt[] = new int[V];
 
         boolean vist[] = new boolean[V];
-        int time = 0;
+        int time = 0; 
         for (int i = 0; i < V; i++) {
             if (!vist[i]) {
+                //here we call the helping function 
                 dfs(graph, dt, lowdt, vist, i, -1, time);
             }
 
