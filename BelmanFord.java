@@ -13,6 +13,7 @@ public class BelmanFord {
         }
 
     }
+    // creating a graph
 
     public static void createGraph(ArrayList<Edge> graph[]) {
 
@@ -41,17 +42,18 @@ public class BelmanFord {
             }
         }
     }
-
-    public static void bellmanFord(ArrayList<Edge> graph[], int src) {
+ public static void bellmanFord(ArrayList<Edge> graph[], int src) {
       int dist[] = new int[graph.length];
-            for(int i=0; i<dist.length; i++) {
+     //filling the int_max values in distance array except the source 
+      for(int i=0; i<dist.length; i++) {
            if(i != src)
- dist[i] = Integer.MAX_VALUE;
+      dist[i] = Integer.MAX_VALUE;
 }
- //O(V)
+ //  relax all edges at V-1 times becouse the longest simple path in a graph with V vertices will contain V-1 edges
  for(int i=0; i<graph.length-1; i++) {
- //edges - O(E)
+ 
  for(int j=0; j<graph.length; j++) {
+     //now checking all neighbours of each vertices and relaxing them
  for(int k=0; k<graph[j].size(); k++) {
  Edge e = graph[j].get(k);
  int u = e.src;
