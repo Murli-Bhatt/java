@@ -7,7 +7,7 @@ public class HouseRobbery {
         if (n == 0) return arr[0];
         if (n < 0) return 0;
         if (dp[n] != -1) return dp[n];
-
+          
         int pick = arr[n] + maxSum(arr, n - 2, dp);
         int notPick = maxSum(arr, n - 1, dp);
 
@@ -18,6 +18,7 @@ public class HouseRobbery {
 
     public static int maxRobbery(int[] arr) {
         int n = arr.length;
+        
         if (n == 0) return 0;
         if (n == 1) return arr[0];
 
@@ -30,7 +31,8 @@ public class HouseRobbery {
         int[] dp2 = new int[n - 1];
         Arrays.fill(dp2, -1);
         int ans2 = maxSum(Arrays.copyOfRange(arr, 1, n), n - 2, dp2);
-
+        
+        //the maximum robbery would be max of ans1 and ans2
         return Math.max(ans1, ans2);
     }
 
