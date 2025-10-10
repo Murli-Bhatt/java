@@ -12,7 +12,8 @@ public class Cycle {
         }
 
     }
-
+    
+    //creating a graph
    public static void createGraph (ArrayList<Edge> graph[]){
     for(int i=0; i<graph.length; i++){
         graph[i] = new ArrayList<>();
@@ -34,13 +35,17 @@ public class Cycle {
    public static boolean cycleDetection(ArrayList<Edge> graph[] , boolean vis[] , int curr , boolean rec[], int prt){
     vis[curr] = true;
      rec[curr] = true;
+       //checking for all neighbours 
      for(int i = 0;i< graph[curr].size();i++){
         Edge e = graph[curr].get(i);
+        
         if(rec[e.dest] == true && e.dest != prt){
+            //here we find a cycle 
             return true;
         }
 
      if(vis[e.dest] == false){
+         //if neighbour is not visited then recursively calling and if it also return true then  graph have also a cycle
         if(cycleDetection(graph, vis, e.dest, rec, curr)){
             return true;
         }
