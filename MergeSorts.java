@@ -17,6 +17,7 @@ public class MergeSorts {
             }
             
         }
+        //if any elements are left then they will fill here 
         while(indx1<=mid){
             merged[i] = arr[indx1];
             i++;
@@ -27,6 +28,7 @@ public class MergeSorts {
             i++;
             indx2++;
         }
+        //here we make change in real array
       for(int k =0 , j = si;k<merged.length;k++,j++){
         arr[j] = merged[k];
 
@@ -37,6 +39,7 @@ public class MergeSorts {
             return;
         }
         int mid = si + (ei-si)/2;
+        //we divide and conquer here arrays 
         divide(arr, si, mid);
         divide(arr, mid+1, ei);
         conquer(arr, si, mid, ei);
@@ -55,3 +58,4 @@ public class MergeSorts {
     
 
 }
+
