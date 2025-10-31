@@ -1,3 +1,4 @@
+//// Builds a binary tree from preorder array with -1 as null.
 import java.util.*;
 
 public class Trees1 {
@@ -16,9 +17,7 @@ public class Trees1 {
 
     public static class BuildTree {
         int indx = -1;
-        // public BuildTrees(){
-
-        // }
+        
         public Node buildTree(int nodes[]) {
             indx++;
             if (nodes[indx] == -1) {
@@ -40,3 +39,4 @@ public class Trees1 {
     }
 
 }
+
