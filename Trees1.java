@@ -1,4 +1,4 @@
-//// Builds a binary tree from preorder array with -1 as null.
+// Builds a binary tree from preorder array with -1 as null.
 import java.util.*;
 
 public class Trees1 {
@@ -39,4 +39,5 @@ public class Trees1 {
     }
 
 }
+
 
