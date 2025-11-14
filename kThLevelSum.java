@@ -1,3 +1,5 @@
+//it will count the sum of all nodes at the Kth level .
+
 import java.util.*;
 public class kThLevelSum {
     public static class Node{
@@ -58,3 +60,4 @@ public static int countSum(Node root, int k) {
     }
     
 }
+
