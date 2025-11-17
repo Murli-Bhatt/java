@@ -1,4 +1,5 @@
-import javax.swing.plaf.synth.SynthPasswordFieldUI;
+//Search a key in the given Binary Search Tree.
+import java.util.*;
 
 public class SearchInBST {
     public static class Node{
@@ -61,3 +62,4 @@ public class SearchInBST {
     }
     
 }
+
